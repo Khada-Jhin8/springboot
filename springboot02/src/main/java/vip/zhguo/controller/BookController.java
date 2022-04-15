@@ -23,27 +23,37 @@ public class BookController {
     @PostMapping
     public ResultDto insertBook(@RequestBody Book book) {
         boolean flag = bookService.save(book);
-        if (flag) return new ResultDto(Result_Code.success, null);
+        if (flag) {
+            return new ResultDto(Result_Code.success, null);
+        }
         return new ResultDto(Result_Code.fail, null);
     }
 
     @PutMapping
     public ResultDto updateBook(@RequestBody Book book) {
         boolean flag = bookService.updateById(book);
-        if (flag) return new ResultDto(Result_Code.success, null);
+        if (flag) {
+            return new ResultDto(Result_Code.success, null);
+        }
         return new ResultDto(Result_Code.fail, null);
     }
 
     @DeleteMapping("/{id}")
     public ResultDto deleteBook(@PathVariable Integer id) {
         boolean flag = bookService.removeById(id);
-        if (flag) return new ResultDto(Result_Code.success, null);
+        if (flag) {
+            return new ResultDto(Result_Code.success, null);
+        }
         return new ResultDto(Result_Code.fail, null);
     }
+
     @GetMapping("/{id}")
-    public ResultDto getBookById(@PathVariable Integer id){
+    public ResultDto getBookById(@PathVariable Integer id) {
         Book book = bookService.getById(id);
-        if (book != null) return new ResultDto(Result_Code.success,book);
-        return new ResultDto(Result_Code.fail,null);
+        if (book != null) {
+            return new ResultDto(Result_Code.success, book);
+        }
+
+        return new ResultDto(Result_Code.fail, null);
     }
 }
