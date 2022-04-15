@@ -7,9 +7,10 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-
 public class Book {
-    @TableId(value = "book_id")
-    private Integer book_id;
-    private String book_name;
+    @TableId(value = "id")
+    private Integer id;
+    private String type;
+    private String name;
+    private String description;
 }
